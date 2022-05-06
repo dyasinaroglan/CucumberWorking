@@ -17,7 +17,7 @@ public class ParentClass {
 
     public ParentClass(){
         driver = Driver.getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
     }
