@@ -5,5 +5,6 @@ Feature: Login as driver
     When user logs in as driver with following credentials
       | username | user160     |
       | password | UserUser123 |
+    #DataTable--> sen bunu yaparsan orada map türünden bir list yada List'ın Listi yapıp get(" ") ile başlıkları çağırırsın
     Then user verifies that "Quick Launchpad" page subtitle is displayed
 

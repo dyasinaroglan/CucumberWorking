@@ -29,19 +29,19 @@ public class CarCreatePage extends ParentClass {
     @FindBy(css = "a[title='Create Car']")
     public WebElement lCreateCar;
 
-    @FindBy(id = "custom_entity_type_LicensePlate-uid-6278c726d56e3")
+    @FindBy(css = "input[name='custom_entity_type[LicensePlate]']")
     public WebElement lLicensePlate;
 
-    @FindBy(id = "custom_entity_type_Driver-uid-6278c726d5e90")
+    @FindBy(css = "input[name='custom_entity_type[Driver]']")
     public WebElement lDriver;
 
-    @FindBy(id = "custom_entity_type_Location-uid-6278c726d5f7a")
+    @FindBy(css = "input[name='custom_entity_type[Location]']")
     public WebElement lLocation;
 
-    @FindBy(id = "custom_entity_type_ModelYear-uid-6278c726d6145")
+    @FindBy(css = "input[name='custom_entity_type[ModelYear]']")
     public WebElement lModelYear;
 
-    @FindBy(id = "custom_entity_type_Color-uid-6278c726d68aa")
+    @FindBy(css = "input[name='custom_entity_type[Color]']")
     public WebElement lColour;
 
     @FindBy(css = "a[class='btn-success btn dropdown-toggle']")
@@ -52,5 +52,14 @@ public class CarCreatePage extends ParentClass {
 
     @FindBy(xpath = "(//button[@class='main-group action-button dropdown-item'])[1]")
     public WebElement lSaveAndNew;
+
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[5]")
+    public WebElement lActivities;
+
+    @FindBy(xpath = "li[data-route='oro_calendar_event_index']")
+    public WebElement lCalenderEvents;
+
+    @FindBy(css = "span[class='grid-header-cell__label']")
+    public WebElement lMenuList;
 
 }

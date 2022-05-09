@@ -5,10 +5,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import pages.CarCreatePage;
 import utilities.ParentClass;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class CarCreateStepDefinitions extends ParentClass {
@@ -31,9 +33,8 @@ public class CarCreateStepDefinitions extends ParentClass {
     @When("user navigates to {string} then to {string}")
     public void userNavigatesToThenTo(String arg0, String arg1) throws InterruptedException {
         Actions actions = new Actions(driver);
-        sleepTo(1000);
         actions.moveToElement(carCreatePage.lFleet).pause(1000).perform();
-
+        sleepTo(2000);
         clickTo(carCreatePage.lVehicles);
     }
 
@@ -49,6 +50,7 @@ public class CarCreateStepDefinitions extends ParentClass {
         int row = 1;
         sleepTo(2000);
         for (Map<String, String> map : dataTable) {
+            sleepTo(1000);
             sendKeysTo(carCreatePage.lLicensePlate,map.get("License Plate"));
             sendKeysTo(carCreatePage.lDriver,map.get("Driver"));
             sendKeysTo(carCreatePage.lLocation,map.get("Location"));
@@ -56,6 +58,7 @@ public class CarCreateStepDefinitions extends ParentClass {
             sendKeysTo(carCreatePage.lColour,map.get("Color"));
 
             clickTo(carCreatePage.lButton);
+            sleepTo(2000);
 
             if(row == dataTable.size()){
                 clickTo(carCreatePage.lSaveAndClose);
@@ -64,7 +67,29 @@ public class CarCreateStepDefinitions extends ParentClass {
             }
             row++;
         }
+    }
 
+    @When("user navigates to Activities button")
+    public void userNavigatesToActivitiesButton() throws InterruptedException {
+        Actions builder = new Actions(driver);
+        sleepTo(5000);
+        builder.moveToElement(carCreatePage.lActivities).pause(1000).perform();
+        sleepTo(1000);
+        clickTo(carCreatePage.lCalenderEvents);
 
+    }
+    @Then("user verifies that column names are displayed")
+    public void userVerifiesThatColumnNamesAreDisplayed() throws InterruptedException {
+        sleepTo(2000);
+       // clickTo(carCreatePage.lCalenderEvents);
+    }
+
+    @And("user navigates to Calender Events button")
+    public void userNavigatesToCalenderEventsButton(List<String> dataTable) throws InterruptedException {
+        System.out.println(dataTable);
+        for (String s : dataTable) {
+            sleepTo(1000);
+            Assert.assertEquals(dataTable, dataTable.contains(s));
+        }
     }
 }
