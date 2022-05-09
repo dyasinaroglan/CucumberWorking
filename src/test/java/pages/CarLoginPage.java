@@ -24,4 +24,6 @@ public class CarLoginPage extends ParentClass {
     @FindBy(css = "h1[class='oro-subtitle']")
     public WebElement lmessageTitle;
 
+
+
 }
